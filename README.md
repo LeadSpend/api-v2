@@ -303,7 +303,7 @@ C-9. OUTPUT
 Output files will adhere to the same format as used for input, except containing additional
 fields named result, role and full (with values as described in *Section* B-8).
 
-To simplify parsing ( *e.g.* for direct, MS-SQL bulk import ), *every* field will be quoted.
+To simplify parsing (*e.g.* for direct, MS-SQL bulk import ), *every* field will be quoted.
 
 C-10. AUTOMATION
 ---------------
