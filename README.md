@@ -190,8 +190,8 @@ To validate fake-address@leadspend.com, the client might GET the resource at:
 
 and would receive the following representation:
 
-`{ &#8220;address&#8221;: &#8220;fake-address@leadspend.com&#8221;,
- &#8220;result&#8221;: &#8220;undeliverable&#8221; }`
+`{ "address": "fake-address@leadspend.com",
+ "result": "undeliverable" }`
  
 C-1. FTP SERVICE OVERVIEW
 -------------------------
@@ -303,7 +303,7 @@ C-9. OUTPUT
 Output files will adhere to the same format as used for input, except containing additional
 fields named result, role and full (with values as described in *Section* B-8).
 
-To simplify parsing ( *e.g.* for direct, MS-SQL bulk import), *every* field will be quoted.
+To simplify parsing ( *e.g.* for direct, MS-SQL bulk import ), *every* field will be quoted.
 
 C-10. AUTOMATION
 ---------------
