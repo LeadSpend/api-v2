@@ -1,4 +1,4 @@
-LeadSpend api-v2
+LeadSpend API V2 Documentation
 ================
 
 A-1. OVERVIEW
@@ -190,8 +190,8 @@ To validate fake-address@leadspend.com, the client might GET the resource at:
 
 and would receive the following representation:
 
-`{ “address”: “fake-address@leadspend.com”,
- “result”: “undeliverable” }`
+`{ ï¿½addressï¿½: ï¿½fake-address@leadspend.comï¿½,
+ ï¿½resultï¿½: ï¿½undeliverableï¿½ }`
  
 C-1. FTP SERVICE OVERVIEW
 -------------------------
@@ -316,14 +316,14 @@ poll every folder. Rather, having uploaded a file, one need *only* poll the inco
 folder. When the file is no longer there, one should look at the errors and outgoing
 folders to see if the file was malformed or successfully processed, respectively.
 
-If malformed, manual intervention is required—something is wrong with how the file is
+If malformed, manual intervention is requiredï¿½something is wrong with how the file is
 formatted, and re-uploading it will not help. Review *Section* C-8 and ensure you have
 included a proper header row, are quoting any special characters (and properly escaping
 any quotes), are using the correct line terminators, and are using binary transfer mode.
 
 If successfully processed, the results will remain in the outgoing folder for at least 30
 days, after which they may be deleted automatically by the FTP service. It is the client's
-responsibility to collect results before this time—and likewise to delete them, if so desired.
+responsibility to collect results before this timeï¿½and likewise to delete them, if so desired.
 
 Before acting on the results, the client should always ensure they conform to the expected
 format, contain the expected records, and the results are within reasonable bounds.
