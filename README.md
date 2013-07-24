@@ -70,7 +70,7 @@ B-3. SECURITY
 
 All API traffic is encrypted via TLS (SSL) and the servers are authenticated via 2048-bit
 X.509 digital certificates. Client-side (JavaScript) queries are authorized via the HTTP
-Referer (sic) header (*N.B.* in order to prevent theft of service by third parties via header
+Referer (sic) header ( *N.B.* in order to prevent theft of service by third parties via header
 spoofing, only a limited number of Referer (sic)-authorized queries are accepted per IP
 address). Server-side queries must use HTTP basic access authentication.
 
@@ -113,10 +113,10 @@ intermediate proxies or firewalls, as per RFC 2616:
 <tr><th>Status code</th><th>Interpretation</th></tr>
 <tr><td>200 OK</td><td>The request was well-formed and the reply contains the result.</td></tr>
 <tr><td>202 Accepted</td><td>The request was well-formed but the result is not yet available.</td></tr>
-<tr><td>400 Bad Request</td><td>The request was malformed and should not be retried without modification. The reply content will contain a description of the error.</td><td></td></tr>
-<tr><td>401 Unauthorized</td><td>No authorization credentials were supplied, they were invalid, or they were encoded incorrectly. Check your WWW-Authenticate header.</td><td></td></tr>
-<tr><td>500 Internal Server Error</td><td>An unexpected error occurred. The request may be retried (perhaps with an alternate server), but persistent failures should be reported.</td><td></td></tr>
-<tr><td>503 Service Unavailable</td><td>The server is temporarily overloaded and not accepting new requests. Requests should temporarily be directed to an alternate server.</td><td> </td></tr>
+<tr><td>400 Bad Request</td><td>The request was malformed and should not be retried without modification. The reply content will contain a description of the error.</td></tr>
+<tr><td>401 Unauthorized</td><td>No authorization credentials were supplied, they were invalid, or they were encoded incorrectly. Check your WWW-Authenticate header.</td></tr>
+<tr><td>500 Internal Server Error</td><td>An unexpected error occurred. The request may be retried (perhaps with an alternate server), but persistent failures should be reported.</td></tr>
+<tr><td>503 Service Unavailable</td><td>The server is temporarily overloaded and not accepting new requests. Requests should temporarily be directed to an alternate server.</td></tr>
 </tbody>
 </table>
 
@@ -190,8 +190,8 @@ To validate fake-address@leadspend.com, the client might GET the resource at:
 
 and would receive the following representation:
 
-`{ �address�: �fake-address@leadspend.com�,
- �result�: �undeliverable� }`
+`{ &#8220;address&#8221;: &#8220;fake-address@leadspend.com&#8221;,
+ &#8220;result&#8221;: &#8220;undeliverable&#8221; }`
  
 C-1. FTP SERVICE OVERVIEW
 -------------------------
@@ -226,7 +226,7 @@ will only be available on the server to which the file was submitted. Clients ar
 to alternate FTP servers in the event of persistent network failure.
 
 If an FTP server becomes unreachable while processing a file, the client may resubmit it to
-the other server. As long as the file's contents are exactly the same (*N.B.* dissimilar filename
+the other server. As long as the file's contents are exactly the same ( *N.B.* dissimilar filename
 are fine), clients will not be double-charged for any overlapping queries that result.
 
 C-5. HOSTNAME
@@ -254,7 +254,7 @@ The client has access to the following folders:
 <table>
 <tbody>
 <tr><th>Path</th><th>Description</th></tr>
-<tr><td>uploads</td><td>If possible, upload files here then move them to incoming (see *Section* C-7).</td></tr>
+<tr><td>uploads</td><td>If possible, upload files here then move them to incoming (see Section C-7).</td></tr>
 <tr><td>incoming</td><td>Place files here to submit them for validation.</td></tr>
 <tr><td>outgoing</td><td>Pick up completed files here.</td></tr>
 <tr><td>errors</td><td>Any malformed files placed in incoming are moved here.</td></tr>
@@ -280,7 +280,7 @@ client risks running a truncated file if there is a network interruption.
 C-8. INPUT
 ----------
 
-Uploaded files must be RFC 4180-compliant CSVs (*cf.* http://tools.ietf.org/html/rfc4180):
+Uploaded files must be RFC 4180-compliant CSVs ( *cf.* http://tools.ietf.org/html/rfc4180 ):
 
 - Commas are used to separate fields.
 - DOS/Windows-style newline (CR+LF) are used to terminate records.
@@ -303,7 +303,7 @@ C-9. OUTPUT
 Output files will adhere to the same format as used for input, except containing additional
 fields named result, role and full (with values as described in *Section* B-8).
 
-To simplify parsing (*e.g.* for direct, MS-SQL bulk import), *every* field will be quoted.
+To simplify parsing ( *e.g.* for direct, MS-SQL bulk import), *every* field will be quoted.
 
 C-10. AUTOMATION
 ---------------
@@ -316,14 +316,14 @@ poll every folder. Rather, having uploaded a file, one need *only* poll the inco
 folder. When the file is no longer there, one should look at the errors and outgoing
 folders to see if the file was malformed or successfully processed, respectively.
 
-If malformed, manual intervention is required�something is wrong with how the file is
+If malformed, manual intervention is required&#8212;something is wrong with how the file is
 formatted, and re-uploading it will not help. Review *Section* C-8 and ensure you have
 included a proper header row, are quoting any special characters (and properly escaping
 any quotes), are using the correct line terminators, and are using binary transfer mode.
 
 If successfully processed, the results will remain in the outgoing folder for at least 30
 days, after which they may be deleted automatically by the FTP service. It is the client's
-responsibility to collect results before this time�and likewise to delete them, if so desired.
+responsibility to collect results before this time&#8212;and likewise to delete them, if so desired.
 
 Before acting on the results, the client should always ensure they conform to the expected
 format, contain the expected records, and the results are within reasonable bounds.
