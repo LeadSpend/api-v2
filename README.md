@@ -181,12 +181,12 @@ queries) or even internal errors. When there is any possibility of this being th
 result field will be accompanied by a retry field, specifying how many seconds must
 be waited before retrying the query, if desired.
 
-B-9. REAL-TIME VALIDITY RESOURCE—EXAMPLE
+B-9. REAL-TIME VALIDITY RESOURCE EXAMPLE
 ----------------------------------------
 
 To validate fake-address@leadspend.com, the client might GET the resource at:
 
-https://username:password@primary.api.leadspend.com/v2/validity/fake-address@leadspend.com?timeout=5
+`https://username:password@primary.api.leadspend.com/v2/validity/fake-address@leadspend.com?timeout=5`
 
 and would receive the following representation:
 
