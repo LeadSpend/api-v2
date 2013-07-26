@@ -1,15 +1,15 @@
 LeadSpend API V2 Documentation
-*************
+_____________
 
 A-1. OVERVIEW
-*************
+_____________
 
 The LeadSpend Validation Platform provides real-time and batch validation of email
 addresses. The platform is accessible via a RESTful web service as well as an automated
 FTP service, as described in Parts B and C of this specification, respectively.
 
 A-2. VALIDITY
-*************
+_____________
 
 LeadSpend defines the validity of an email address as follows:
 
@@ -48,7 +48,7 @@ always indicative of a domain which is not used to receive email, transient conf
 DNS errors on the receiving end may also be at fault.
 
 B-1. WEB SERVICE OVERVIEW
-*************
+_____________
 
 The LeadSpend Validation Platform is accessible via a RESTful web service for real-time
 validation. API resources are identified by URLs and interacted with using the standard
