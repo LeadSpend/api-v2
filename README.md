@@ -1,4 +1,4 @@
-LeadSpend API V2 Documentation - TEST
+LeadSpend API V2 Documentation
 --------------------
 
 A-1. OVERVIEW
