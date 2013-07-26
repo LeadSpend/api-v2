@@ -70,7 +70,7 @@ B-3. SECURITY
 
 All API traffic is encrypted via TLS (SSL) and the servers are authenticated via 2048-bit
 X.509 digital certificates. Client-side (JavaScript) queries are authorized via the HTTP
-Referer (sic) header ( *N.B.* in order to prevent theft of service by third parties via header
+Referer (sic) header (*N.B.* in order to prevent theft of service by third parties via header
 spoofing, only a limited number of Referer (sic)-authorized queries are accepted per IP
 address). Server-side queries must use HTTP basic access authentication.
 
@@ -226,7 +226,7 @@ will only be available on the server to which the file was submitted. Clients ar
 to alternate FTP servers in the event of persistent network failure.
 
 If an FTP server becomes unreachable while processing a file, the client may resubmit it to
-the other server. As long as the file's contents are exactly the same ( *N.B.* dissimilar filename
+the other server. As long as the file's contents are exactly the same (*N.B.* dissimilar filenames
 are fine), clients will not be double-charged for any overlapping queries that result.
 
 C-5. HOSTNAME
@@ -280,7 +280,7 @@ client risks running a truncated file if there is a network interruption.
 C-8. INPUT
 *************
 
-Uploaded files must be RFC 4180-compliant CSVs ( *cf.* http://tools.ietf.org/html/rfc4180 ):
+Uploaded files must be RFC 4180-compliant CSVs (*cf.* http://tools.ietf.org/html/rfc4180 ):
 
 - Commas are used to separate fields.
 - DOS/Windows-style newline (CR+LF) are used to terminate records.
@@ -303,7 +303,7 @@ C-9. OUTPUT
 Output files will adhere to the same format as used for input, except containing additional
 fields named result, role and full (with values as described in *Section* B-8).
 
-To simplify parsing ( *e.g.* for direct, MS-SQL bulk import ), *every* field will be quoted.
+To simplify parsing (*e.g.* for direct, MS-SQL bulk import ), *every* field will be quoted.
 
 C-10. AUTOMATION
 *************
