@@ -30,8 +30,7 @@ with an office, position, group or task. Role accounts can be broadly classified
 *technical* or *nontechnical*.
 
 - A *technical* role account has a local part such as *postmaster*, *abuse* or *spam*.
-Because such accounts should never be mailed, these addresses are classified as
-**illegitimate**.
+Because such accounts should never be mailed, these addresses are classified as **illegitimate**.
 
 - A *nontechnical* role account has a local part such as *sales*, *support*, *info*, *legal*, or
 *inquiries*. Whether you choose to accept such addresses depends on your use case,
@@ -39,8 +38,8 @@ and may require case-by-case, manual evaluation. For these addresses, the value
 of the **role** field will be **true**.
 
 A **full** mailbox is **undeliverable**, and typically indicative of an inactive account.
-However, if you would like to accept these, you can identify them by the the existence of the
-**full** field, containing a value of **true**.
+However, if you would like to accept these, you can identify them by the the existence of the **full**
+ field, containing a value of **true**.
 
 An email address is **unreachable** if either no mail exchangers are advertised for its
 domain or they all persistently reject or do not reply to inbound connections. While almost
