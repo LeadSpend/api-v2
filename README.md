@@ -30,8 +30,7 @@ with an office, position, group or task. Role accounts can be broadly classified
 *technical* or *nontechnical*.
 
 - A *technical* role account has a local part such as *postmaster*, *abuse* or *spam*.
-Because such accounts should never be mailed, these addresses are classified as
-**illegitimate**.
+Because such accounts should never be mailed, these addresses are classified as **illegitimate**.
 
 - A *nontechnical* role account has a local part such as *sales*, *support*, *info*, *legal*, or
 *inquiries*. Whether you choose to accept such addresses depends on your use case,
