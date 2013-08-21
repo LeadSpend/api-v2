@@ -71,7 +71,7 @@ All API traffic is encrypted via TLS (SSL) and the servers are authenticated via
 X.509 digital certificates. Client-side (JavaScript) queries are authorized via the HTTP
 Referer (sic) header (*N.B.* in order to prevent theft of service by third parties via header
 spoofing, only a limited number of Referer (sic)-authorized queries are accepted per IP
-address). Server-side queries must use HTTP basic access authentication.
+address). Server-side queries are authenticated via an API-key URL parameter.
 
 B-4. AVAILABILITY
 --------------------
@@ -185,7 +185,7 @@ B-9. REAL-TIME VALIDITY RESOURCE EXAMPLE
 
 To validate fake-address@leadspend.com, the client might GET the resource at:
 
-`https://username:password@primary.api.leadspend.com/v2/validity/fake-address@leadspend.com?timeout=5`
+`https://username:password@primary.api.leadspend.com/v2/validity/fake-address@leadspend.com?timeout=5&key={API key}`
 
 and would receive the following representation:
 
