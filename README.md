@@ -240,7 +240,7 @@ Required parameters:
 <table>
 <tbody>
 <tr><th>Name</th><th>Description</th><th>Value(s)</th></tr>
-<tr><td>server</td><td>The server name.</td><td>primary.api.leadspend.com, secondary.api.leadspend.com</td></tr>
+<tr><td>server</td><td>The server name.</td><td>primary.ftp.leadspend.com, secondary.ftp.leadspend.com</td></tr>
 <tr><td>version</td><td>The API version.</td><td>v2</td></tr>
 </tbody>
 </table>
