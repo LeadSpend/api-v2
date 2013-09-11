@@ -185,7 +185,7 @@ B-9. REAL-TIME VALIDITY RESOURCE EXAMPLE
 
 To validate fake-address@leadspend.com, the client might GET the resource at:
 
-`https://username:password@primary.api.leadspend.com/v2/validity/fake-address@leadspend.com?timeout=5&key={API key}`
+`https://primary.api.leadspend.com/v2/validity/fake-address@leadspend.com?timeout=5&key={API key}`
 
 and would receive the following representation:
 
