@@ -18,9 +18,9 @@ LeadSpend defines the validity of an email address as follows:
 <tr><th>Value</th><th>Description</th></tr>
 <tr><td>verified</td><td>Mailbox exists, is reachable, and not known to be illegitimate or disposable.</td></tr>
 <tr><td>disposable</td><td>Domain is administered by disposable email provider (e.g. Mailinator).</td></tr>
-<tr><td>unreachable</td><td>Domain has no reachable mail exchangers (see discussion, below).</td></tr>
+<tr><td>unreachable</td><td>Domain does not exist or has no reachable mail exchangers (see discussion, below).</td></tr>
 <tr><td>illegitimate</td><td>Seed, spamtrap, black hole, technical role account or inactive domain.</td></tr>
-<tr><td>undeliverable</td><td>Mailbox or domain does not exist, or mailbox is full, suspended or disabled.</td></tr>
+<tr><td>undeliverable</td><td>Mailbox does not exist, or mailbox is full, suspended or disabled.</td></tr>
 <tr><td>unknown</td><td>We were unable to conclusively verify or invalidate this address.</td></tr>
 </tbody>
 </table>
