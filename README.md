@@ -1,10 +1,10 @@
-LeadSpend API V2 Documentation
+Email Validate API V2 Documentation
 --------------------
 
 A-1. OVERVIEW
 --------------------
 
-The LeadSpend Validation Platform provides real-time and batch validation of email
+The Email Validation Platform provides real-time and batch validation of email
 addresses. The platform is accessible via a RESTful web service as well as an automated
 FTP service, as described in Parts B and C of this specification, respectively.
 
@@ -45,6 +45,13 @@ An email address is **unreachable** if either no mail exchangers are advertised 
 domain or they all persistently reject or do not reply to inbound connections. While almost
 always indicative of a domain which is not used to receive email, transient configuration or
 DNS errors on the receiving end may also be at fault.
+
+
+A-3. CORRECTIONS
+--------------------
+
+In addition to the validity of a given email address, the service also provides an ordered list of potential corrections.  Lorem ipsum dolor...
+
 
 B-1. WEB SERVICE OVERVIEW
 --------------------
@@ -94,7 +101,7 @@ Required parameters:
 <table>
 <tbody>
 <tr><th>Name</th><th>Description</th><th>Value(s)</th></tr>
-<tr><td>server</td><td>The server name.</td><td>primary.api.leadspend.com, secondary.api.leadspend.com</td></tr>
+<tr><td>server</td><td>The server name.</td><td>changeme1.qasemail.qas.com, changeme2.qasemail.qas.com</td></tr>
 <tr><td>version</td><td>The API version.</td><td>v2</td></tr>
 </tbody>
 </table>
@@ -167,6 +174,7 @@ The representation may also contain one or more of the following fields:
 <tr><td>full</td><td>Is the mailbox full?</td><td>true or not present.</td></tr>
 <tr><td>timeout</td><td>Was the query's timeout exhausted?</td><td>true or not present.</td></tr>
 <tr><td>retry</td><td>You may retry after this many seconds.</td><td>An integer or not present.</td></tr>
+<tr><td>corrections</td><td>List of suggested corrections.</td><td>list consisting of email addresses (strings).</td></tr>
 </tbody>
 </table>
 
