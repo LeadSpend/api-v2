@@ -38,7 +38,7 @@ and may require case-by-case, manual evaluation. For these addresses, the value
 of the **role** field will be **true**.
 
 A **full** mailbox is **undeliverable**, and typically indicative of an inactive account.
-However, if you would like to accept these, you can identify them by the the existence of the 
+However, if you would like to accept these, you can identify them by the existence of the 
 **full** field, containing a value of **true**.
 
 An email address is **unreachable** if either no mail exchangers are advertised for its
@@ -200,9 +200,9 @@ be waited before retrying the query, if desired.
 B-9. REAL-TIME CORRECTIONS
 --------------------
 
-Zero or more corrections may be retruend for a given email address. Corrections will be returned by the real-time endpoint as an array of email addresses, sorted by descending order of likelyhood.
+Zero or more corrections may be returned for a given email address. Corrections will be returned by the real-time endpoint as an array of email addresses, sorted by descending order of likelihood.
 
-Corrections returned by real-time validation are not gauranteed to be verified. The Email Validation platform makes a best-effort to validate these suggested corrections without affecting response time. The system attempts to validate all suggested corrections simultaneously, removing any invalid addresses as they are identified. When the original address has been conclusively validated, the array of remaining corrections is returned.
+Corrections returned by real-time validation are not guaranteed to be verified. The Email Validation platform makes a best-effort to validate these suggested corrections without affecting response time. The system attempts to validate all suggested corrections simultaneously, removing any invalid addresses as they are identified. When the original address has been conclusively validated, the array of remaining corrections is returned.
 
 B-10. REAL-TIME VALIDITY RESOURCE EXAMPLES
 --------------------
@@ -229,7 +229,7 @@ the response would be in the form of:
 "corrections" : ["fakeaddress@gmail.com", "fakeaddress@gmal.com"] }
 
 *NOTE: the corrections shown above are purely for documentation purpose and may not reflect the 
-behaviour of the corrections module.*
+behavior of the corrections module.*
 
  
 C-1. FTP SERVICE OVERVIEW
@@ -295,8 +295,8 @@ Uploaded files must be RFC 4180-compliant CSVs (*cf.* http://tools.ietf.org/html
 - Otherwise, quoting is optional.
 
 In addition to the above, a header row is required. The email-address column must be
-named email (case-insensitive). Additional columns may be included, and will be
-preserved in the output, but none of them may be named result, role nor full.
+named *email* (case-insensitive). Additional columns may be included, and will be
+preserved in the output, but none of them may be named result or correction.
 Additional column names may be reserved, in the future.
 
 ASCII-mode FTP converts newline sequences during transfer, so use binary mode!
@@ -305,10 +305,10 @@ C-6. OUTPUT
 --------------------
 
 Output files will adhere to the same format as used for input, except containing additional
-fields named result, correction, role and full (with values as described in *Section* B-8). 
+fields named result and correction (with values as described in *Section* B-8). 
 
 Unlike the real-time API, if more than one correction is suggested by the service, only the most 
-likely correction will be returned. This correction has been validated, and is gauranteed to be a
+likely correction will be returned. This correction has been validated, and is guaranteed to be a
 "verified" or "unknown" result. 
 
 To simplify parsing (*e.g.* for direct, MS-SQL bulk import ), *every* field will be quoted.
@@ -323,9 +323,9 @@ Importantly, because a file is only in a single state at any given time, it is n
 poll every folder. Rather, having uploaded a file, one need *only* poll the incoming
 folder. When the file is no longer there, it will appear in the outgoing directory for download.
 
-Improperly formatted files will are rejected from the system during the upload process. You will recieve an email notification with details about what was wrong with the file. If malformed, manual intervention is required&#8212;something is wrong with how the file is formatted, and re-uploading it will not help. Review *Section* C-6 and ensure you have included a proper header row, are quoting any special characters (and properly escaping any quotes), are using the correct line terminators, and are using binary transfer mode.
+Improperly formatted files will are rejected from the system during the upload process. You will receive an email notification with details about what was wrong with the file. If malformed, manual intervention is required&#8212;something is wrong with how the file is formatted, and re-uploading it will not help. Review *Section* C-6 and ensure you have included a proper header row, are quoting any special characters (and properly escaping any quotes), are using the correct line terminators, and are using binary transfer mode.
 
-When a file has completed processing, you will recieve an email notification. The results may be retrieved from the outgoing folder, and will remain there for at least 30 days. After 30 days they may be deleted automatically by the FTP service due to our data retention policy. It is the client's responsibility to collect results before this time&#8212;and likewise to delete them, if so desired.
+When a file has completed processing, you will receive an email notification. The results may be retrieved from the outgoing folder, and will remain there for at least 30 days. After 30 days they may be deleted automatically by the FTP service due to our data retention policy. It is the client's responsibility to collect results before this time&#8212;and likewise to delete them, if so desired.
 
 Before acting on the results, the client should always ensure they conform to the expected
 format, contain the expected records, and the results are within reasonable bounds.
