@@ -145,6 +145,7 @@ There are two required parameters:
 <tr><th>Name</th><th>Description</th><th>Value</th></tr>
 <tr><td>address</td><td>The email address to validate.</td><td>A percent-encoded email address.</td></tr>
 <tr><td>timeout</td><td>The timeout, in seconds.</td><td>Integer (truncated to the range [3, 15]).</td></tr>
+<tr><td>key</td><td>API key (required unless otherwise stated)</td><td>A randomly generated API key</td></tr>
 </tbody>
 </table>
 
