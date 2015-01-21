@@ -130,6 +130,7 @@ intermediate proxies or firewalls, as per RFC 2616:
 <tr><td>202 Accepted</td><td>The request was well-formed but the result is not yet available.</td></tr>
 <tr><td>400 Bad Request</td><td>The request was malformed and should not be retried without modification. The reply content will contain a description of the error.</td></tr>
 <tr><td>401 Unauthorized</td><td>No authorization credentials were supplied, they were invalid, or they were encoded incorrectly. Check your WWW-Authenticate header.</td></tr>
+<tr><td>429 Too Many Requests</td><td>Requests made to the API are rate-limited. This response code signifies that the rate-limit has been exceeded.</td></tr>
 <tr><td>500 Internal Server Error</td><td>An unexpected error occurred. The request may be retried (perhaps with an alternate server), but persistent failures should be reported.</td></tr>
 <tr><td>503 Service Unavailable</td><td>The server is temporarily overloaded and not accepting new requests. Requests should temporarily be directed to an alternate server.</td></tr>
 </tbody>
