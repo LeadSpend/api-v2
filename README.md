@@ -61,6 +61,32 @@ are email addresses you are authorized to send to. Please check with your legal 
 confirm that the manner in which you plan to use the emails prior to sending email to such 
 recipients.
 
+A-4. VERBOSE OUTPUT
+-------------------
+
+In addition to validity of an email address, optional verbose output flags can also be returned 
+which provide greater detail about why the email is that validity. This information is only returned
+when verbose_output is set to True.
+
+<table>
+<tbody>
+<tr><th>Validity</th><th>Verbose Output</th><th>Description</th></tr>
+<tr><td>verified</td><td>verified</td><td>Mailbox exists, is reachable, and not known to be illegitimate or disposable.</td></tr>
+<tr><td>undeliverable</td><td>mailboxDisabled</td><td>The user mailbox has been disabled.</td></tr>
+<tr><td></td><td>mailboxDoesNotExist</td><td>The user mailbox does not exist at this domain.</td></tr>
+<tr><td></td><td>mailboxFull</td><td>The user mailbox is full.</td></tr>
+<tr><td></td><td>syntaxFailure</td><td>The syntax of the email address is incorrect .</td></tr>
+<tr><td>unreachable</td><td>unreachable</td><td>The domain is not responding to validation requests or does not have any active mail servers.</td></tr>
+<tr><td></td><td>unresolvable</td><td>The domain cannot be resolved.</td></tr>
+<tr><td>illegitimate</td><td>illegitimate</td><td>Seed, spamtrap, black hole, technical role account or inactive domain.</td></tr>
+<tr><td></td><td>roleAccount</td><td>Role accounts such as support@, sales@, info@ .</td></tr>
+<tr><td></td><td>typoDomain</td><td>The domain was close to a common domain and although it exists, it is highly unlikely to be correct.</td></tr>
+<tr><td>disposable</td><td>disposable</td><td>Domain is administered by a disposable email provider (e.g. Mailinator).</td></tr>
+<tr><td>unknown</td><td>unknown</td><td>We were unable to conclusively verify or invalidate this address.</td></tr>
+<tr><td></td><td>timeout</td><td>The request timed out due to the host domain not responding in time.</td></tr>
+<tr><td></td><td>acceptAll</td><td>The domain is accept-all, so the username cannot be validated.</td></tr>
+</tbody>
+</table>
 
 B-1. WEB SERVICE OVERVIEW
 --------------------
@@ -155,14 +181,15 @@ structure:
 
 `/validity/{address}?timeout={timeout}`
 
-There are two required parameters:
+The parameters are as follows:
 
 <table>
 <tbody>
-<tr><th>Name</th><th>Description</th><th>Value</th></tr>
-<tr><td>address</td><td>The email address to validate.</td><td>A percent-encoded email address.</td></tr>
-<tr><td>timeout</td><td>The timeout, in seconds.</td><td>Integer (truncated to the range [3, 15]).</td></tr>
-<tr><td>key</td><td>API key (required unless otherwise stated).</td><td>A unique API key.</td></tr>
+<tr><th>Name</th><th>Description</th><th>Value</th><th>Required?</th></tr>
+<tr><td>address</td><td>The email address to validate.</td><td>A percent-encoded email address.</td><td>Yes</td></tr>
+<tr><td>timeout</td><td>The timeout, in seconds.</td><td>Integer (truncated to the range [3, 15]).</td><td>Yes</td></tr>
+<tr><td>key</td><td>API key (required unless otherwise stated).</td><td>A unique API key.</td><td>Yes</td></tr>
+<tr><td>verbose_output</td><td>Where to return verbose flags or not</td><td>True or False</td><td>Optional</td></td></tr>
 </tbody>
 </table>
 
@@ -186,6 +213,7 @@ The representation may also contain one or more of the following fields:
 <tr><td>timeout</td><td>Was the query's timeout exhausted?</td><td>'true' or not present.</td></tr>
 <tr><td>retry</td><td>You may retry after this many seconds.</td><td>An integer or not present.</td></tr>
 <tr><td>corrections</td><td>List of suggested corrections.</td><td>Array consisting of email addresses.</td></tr>
+<tr><td>verbose_output</td><td>The verbose flag returned only if specified.</td><td>See Section A-4.</td></tr>
 </tbody>
 </table>
 
@@ -314,6 +342,9 @@ likely correction will be returned. This correction has been validated, and is g
 "verified" or "unknown" result. 
 
 To simplify parsing (*e.g.* for direct, MS-SQL bulk import ), *every* field will be quoted.
+
+Verbose output is also available for Batch but needs to be enabled. Please contact Support for 
+enabling on your account.
 
 C-7. AUTOMATION
 --------------------
